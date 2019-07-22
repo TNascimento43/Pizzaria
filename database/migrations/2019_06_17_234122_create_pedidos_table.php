@@ -17,7 +17,16 @@ class CreatePedidosTable extends Migration
             $table->bigIncrements('id');
             $table->bigIncrements('id_pedido');
             $table->bigIncrements('id_pizza');
-            $table->timestamps();
+            $table->bigIncrements('is_cliente);
+            
+              $table->foreign('id_pizza')
+                ->references('id')->on('pizza')
+                ->onDelete('cascade');
+            
+              $table->foreign('id_cliente')
+                ->references('id')->on('cliente')
+                ->onDelete('cascade');
+           
         });
     }
 
